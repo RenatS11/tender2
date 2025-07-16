@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Логистика — Синхронизация заявок</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Экран 1 -->
+      <section id="screen1" class="screen center-content active">
+        <div class="title-container">
+          <h1>ТЕНДЕР</h1>
+          <p>ЛОГИСТИК</p>
+        </div>
+        <div class="btn-container">
+          <button class="btn" id="btnLogin1">Вход</button>
+          <button class="btn" id="btnRegister">Регистрация</button>
+          <button class="btn" id="btnSkip1">Пропустить</button>
+        </div>
+      </section>
+
+      <!-- Экран 2 -->
+      <section id="screen2" class="screen center-content">
+        <input
+          type="text"
+          id="loginInput"
+          placeholder="Логин"
+          autocomplete="username"
+        />
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Пароль"
+          autocomplete="current-password"
+        />
+        <button class="btn" id="btnLogin2">Вход</button>
+        <button class="btn" id="btnSkip2">Пропустить</button>
+        <button class="btn" id="btnBack2">Назад</button>
+      </section>
+
+      <!-- Экран 3 -->
+      <section id="screen3" class="screen">
+        <header class="header screen-header">
+          <button class="icon-btn" id="btnGlobe" title="Все заявки">🌐</button>
+          <button class="icon-btn" id="btnSettings" title="Настройки">
+            ⚙️
+          </button>
+        </header>
+        <main class="main-content">
+          <div id="flightsList" class="flights-list"></div>
+        </main>
+        <footer class="footer">
+          <button class="btn" id="btnAddTS">Добавить ТС / Рейс</button>
+        </footer>
+      </section>
+
+      <!-- Экран 4 -->
+      <section id="screen4" class="screen">
+        <header class="header screen-header">
+          <button class="icon-btn" id="btnHomeFromScreen4" title="Домой">
+            🏠
+          </button>
+          <h2>Заявки всех пользователей</h2>
+          <div></div>
+        </header>
+        <main class="main-content">
+          <div id="allFlightsList" class="flights-list"></div>
+        </main>
+        <footer class="footer">
+          <button class="btn" id="btnOpenFilter">Поиск</button>
+        </footer>
+      </section>
+    </div>
+
+    <!-- Модальное окно добавления/редактирования -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="modalTitle">Добавить заявку на рейс</h3>
+        <form id="addFlightForm" class="form" novalidate>
+          <input type="text" id="fromInput" placeholder="Откуда" required />
+          <input type="date" id="departureDateInput" required />
+          <input type="text" id="toInput" placeholder="Куда" required />
+          <input
+            type="text"
+            id="transportInput"
+            placeholder="Тип транспорта"
+            required
+          />
+          <input
+            type="text"
+            id="capacityInput"
+            placeholder="Грузоподъёмность (т)"
+            required
+          />
+          <input
+            type="text"
+            id="responsibleInput"
+            placeholder="Ответственный"
+            required
+          />
+          <input
+            type="tel"
+            id="phoneInput"
+            placeholder="Телефон"
+            required
+            pattern="[\d\s+()-]{7,}"
+          />
+          <div class="modal-buttons">
+            <button type="submit" class="btn">Добавить</button>
+            <button type="button" class="btn btn-cancel" id="btnCancelModal">
+              Отмена
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Модальное окно фильтрации -->
+    <div id="filterModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Фильтр заявок</h3>
+        <form id="filterForm" class="form" novalidate>
+          <input type="text" id="filterFrom" placeholder="Откуда" />
+          <input type="text" id="filterTo" placeholder="Куда" />
+          <input type="date" id="filterDate" />
+          <input
+            type="text"
+            id="filterTransport"
+            placeholder="Тип транспорта"
+          />
+          <input
+            type="text"
+            id="filterCapacity"
+            placeholder="Грузоподъёмность"
+          />
+          <div class="modal-buttons">
+            <button type="submit" class="btn">Искать</button>
+            <button type="button" class="btn btn-cancel" id="btnCancelFilter">
+              Отмена
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
