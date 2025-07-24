@@ -1,4 +1,3 @@
-/* Базовые стили */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +11,7 @@ html {
   height: 100%;
 }
 
-/* Контейнер приложения */
+/* РљРѕРЅС‚РµР№РЅРµСЂ РїСЂРёР»РѕР¶РµРЅРёСЏ */
 #app {
   position: relative;
   width: 100%;
@@ -24,7 +23,7 @@ html {
   flex-direction: column;
 }
 
-/* Экран */
+/* Р­РєСЂР°РЅ */
 .screen {
   position: absolute;
   top: 0;
@@ -38,14 +37,14 @@ html {
   display: flex;
 }
 
-/* Центрирование контента */
+/* Р¦РµРЅС‚СЂРёСЂРѕРІР°РЅРёРµ РєРѕРЅС‚РµРЅС‚Р° */
 .center-content {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-/* Шапка экранов 3 и 4 */
+/* РЁР°РїРєР° СЌРєСЂР°РЅРѕРІ 3 Рё 4 */
 .screen-header {
   width: 100%;
   display: flex;
@@ -60,7 +59,7 @@ html {
   z-index: 10;
 }
 
-/* Заголовок в 4 экране — центрируем по flex */
+/* Р—Р°РіРѕР»РѕРІРѕРє РІ 4 СЌРєСЂР°РЅРµ вЂ” С†РµРЅС‚СЂРёСЂСѓРµРј РїРѕ flex */
 #screen4 .screen-header h2 {
   margin: 0;
   font-size: 1.2rem;
@@ -68,23 +67,23 @@ html {
   text-align: center;
 }
 
-/* Основное содержимое под шапкой */
+/* РћСЃРЅРѕРІРЅРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РїРѕРґ С€Р°РїРєРѕР№ */
 .main-content {
   flex-grow: 1;
   width: 100%;
-  margin-top: 60px; /* отступ под шапку + небольшой gap */
+  margin-top: 60px; /* РѕС‚СЃС‚СѓРї РїРѕРґ С€Р°РїРєСѓ + РЅРµР±РѕР»СЊС€РѕР№ gap */
   padding: 0 10px;
   overflow-y: auto;
 }
 
-/* Список заявок */
+/* РЎРїРёСЃРѕРє Р·Р°СЏРІРѕРє */
 .flights-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Карточка рейса */
+/* РљР°СЂС‚РѕС‡РєР° СЂРµР№СЃР° */
 .flight-card {
   background: #fff;
   border: 2px solid #000;
@@ -123,7 +122,7 @@ html {
   margin-left: 8px;
 }
 
-/* Кнопки и инпуты */
+/* РљРЅРѕРїРєРё Рё РёРЅРїСѓС‚С‹ */
 .btn,
 .icon-btn {
   background: #ddd;
@@ -142,7 +141,7 @@ input {
   border-radius: 6px;
 }
 
-/* Модалки */
+/* РњРѕРґР°Р»РєРё */
 .modal {
   position: fixed;
   top: 0;
@@ -163,6 +162,9 @@ input {
   max-height: 90vh;
   overflow-y: auto;
 }
+.modal-content input {
+  width: 100%;
+}
 .modal.hidden {
   display: none;
 }
@@ -181,7 +183,12 @@ input {
   color: #333;
 }
 
-/* Адаптив */
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* РђРґР°РїС‚РёРІ */
 @media (max-width: 480px) {
   #app {
     max-width: 100%;

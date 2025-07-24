@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Инициализация демо-данных
   (function initDemo() {
-    const cities = ["Москва", "Казань", "СПб", "Новосиб", "Екатер"];
+    const cities = ["Москва", "Казань", "СПБ", "Новосиб", "Екатер"];
     const trans = ["ВИС", "ГАЗ", "КАМАЗ"];
     const resp = ["Иванов", "Петров", "Сидоров"];
     const phones = ["+7 111 111 11 11", "+7 222 222 22 22", "+7 333 333 33 33"];
@@ -101,13 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = document.createElement("div");
       row.className = cls;
       if (idx === 0)
-        row.innerHTML = `<span>${data.from}</span><span>${fmtDate(
+        row.innerHTML = `<span>${data.from}</span> <span>${fmtDate(
           data.departureDate
         )}</span>`;
       if (idx === 1)
-        row.innerHTML = `<span>${data.to}</span><span>${data.transport}, ${data.capacity} т</span>`;
+        row.innerHTML = `<span>${data.to}</span> <span>${data.transport}, ${data.capacity} т</span>`;
       if (idx === 2)
-        row.innerHTML = `<span>👤${data.responsible}</span><span>📞${data.phone}</span>`;
+        row.innerHTML = `<span>👤${data.responsible}</span> <span>📞${data.phone}</span>`;
       info.appendChild(row);
     });
     card.appendChild(info);
