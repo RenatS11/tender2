@@ -1,3 +1,4 @@
+/* Базовые стили */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +12,7 @@ html {
   height: 100%;
 }
 
-/* РљРѕРЅС‚РµР№РЅРµСЂ РїСЂРёР»РѕР¶РµРЅРёСЏ */
+/* Контейнер приложения */
 #app {
   position: relative;
   width: 100%;
@@ -23,7 +24,7 @@ html {
   flex-direction: column;
 }
 
-/* Р­РєСЂР°РЅ */
+/* Экран */
 .screen {
   position: absolute;
   top: 0;
@@ -37,14 +38,14 @@ html {
   display: flex;
 }
 
-/* Р¦РµРЅС‚СЂРёСЂРѕРІР°РЅРёРµ РєРѕРЅС‚РµРЅС‚Р° */
+/* Центрирование контента */
 .center-content {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-/* РЁР°РїРєР° СЌРєСЂР°РЅРѕРІ 3 Рё 4 */
+/* Шапка экранов 3 и 4 */
 .screen-header {
   width: 100%;
   display: flex;
@@ -59,7 +60,7 @@ html {
   z-index: 10;
 }
 
-/* Р—Р°РіРѕР»РѕРІРѕРє РІ 4 СЌРєСЂР°РЅРµ вЂ” С†РµРЅС‚СЂРёСЂСѓРµРј РїРѕ flex */
+/* Заголовок в 4 экране — центрируем по flex */
 #screen4 .screen-header h2 {
   margin: 0;
   font-size: 1.2rem;
@@ -67,23 +68,23 @@ html {
   text-align: center;
 }
 
-/* РћСЃРЅРѕРІРЅРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РїРѕРґ С€Р°РїРєРѕР№ */
+/* Основное содержимое под шапкой */
 .main-content {
   flex-grow: 1;
   width: 100%;
-  margin-top: 60px; /* РѕС‚СЃС‚СѓРї РїРѕРґ С€Р°РїРєСѓ + РЅРµР±РѕР»СЊС€РѕР№ gap */
+  margin-top: 60px; /* отступ под шапку + небольшой gap */
   padding: 0 10px;
   overflow-y: auto;
 }
 
-/* РЎРїРёСЃРѕРє Р·Р°СЏРІРѕРє */
+/* Список заявок */
 .flights-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* РљР°СЂС‚РѕС‡РєР° СЂРµР№СЃР° */
+/* Карточка рейса */
 .flight-card {
   background: #fff;
   border: 2px solid #000;
@@ -96,7 +97,7 @@ html {
 }
 .flight-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
   gap: 4px 8px;
   width: 100%;
@@ -122,7 +123,7 @@ html {
   margin-left: 8px;
 }
 
-/* РљРЅРѕРїРєРё Рё РёРЅРїСѓС‚С‹ */
+/* Кнопки и инпуты */
 .btn,
 .icon-btn {
   background: #ddd;
@@ -141,7 +142,7 @@ input {
   border-radius: 6px;
 }
 
-/* РњРѕРґР°Р»РєРё */
+/* Модалки */
 .modal {
   position: fixed;
   top: 0;
@@ -182,22 +183,23 @@ input {
   border-color: #999;
   color: #333;
 }
+.flights-list:not(.user-list) .flight-card {
+    cursor: default;
+}
+#confirmModal .modal-content p {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
 
 .footer {
   display: flex;
   justify-content: center;
 }
 
-/* РђРґР°РїС‚РёРІ */
+/* Адаптив */
 @media (max-width: 480px) {
   #app {
     max-width: 100%;
-  }
-  .btn {
-    width: 90%;
-    margin: 6px 0;
-  }
-  input {
-    width: 90%;
   }
 }

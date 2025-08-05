@@ -77,7 +77,7 @@
         </footer>
       </section>
     </div>
-
+    
     <!-- Модальное окно добавления/редактирования -->
     <div id="modal" class="modal hidden">
       <div class="modal-content">
@@ -120,6 +120,19 @@
         </form>
       </div>
     </div>
+
+    <!-- Модальное окно подтверждения удаления -->
+    <div id="confirmModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Подтверждение удаления</h3>
+        <p>Вы действительно хотите удалить эту заявку?</p>
+        <div class="modal-buttons">
+          <button class="btn" id="btnConfirmDelete">Удалить</button>
+          <button class="btn btn-cancel" id="btnCancelDelete">Отмена</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Модальное окно фильтрации -->
     <div id="filterModal" class="modal hidden">
       <div class="modal-content">

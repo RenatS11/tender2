@@ -35,7 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Модальные окна
   const modal = document.getElementById("modal");
   const filterModal = document.getElementById("filterModal");
+  const confirmModal = document.getElementById("confirmModal");
+  let flightToDelete = null;
   document.getElementById("btnAddTS").onclick = () => openAddModal();
+  document.getElementById("btnConfirmDelete").onclick = () => {
+    if (flightToDelete) {
+      removeFlight(flightToDelete);
+      renderUser();
+      renderAll();
+    }
+    confirmModal.classList.add("hidden");
+    flightToDelete = null;
+  };
+  document.getElementById("btnCancelDelete").onclick = () => {
+    confirmModal.classList.add("hidden");
+    flightToDelete = null;
+  };
   document.getElementById("btnCancelModal").onclick = () => closeAddModal();
   document.getElementById("btnOpenFilter").onclick = () =>
     filterModal.classList.remove("hidden");
@@ -90,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Создание/обновление карточки
-  function createCard(data, container) {
+  function createCard(data, container, isUserList = false) {
     const card = document.createElement("div");
     card.className = "flight-card";
     card.dataset.flight = JSON.stringify(data);
@@ -98,33 +113,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const info = document.createElement("div");
     info.className = "flight-info";
     ["row-1", "row-2", "row-3"].forEach((cls, idx) => {
-      const row = document.createElement("div");
-      row.className = cls;
-      if (idx === 0)
-        row.innerHTML = `<span>${data.from}</span> <span>${fmtDate(
-          data.departureDate
-        )}</span>`;
-      if (idx === 1)
-        row.innerHTML = `<span>${data.to}</span> <span>${data.transport}, ${data.capacity} т</span>`;
-      if (idx === 2)
-        row.innerHTML = `<span>👤${data.responsible}</span> <span>📞${data.phone}</span>`;
-      info.appendChild(row);
+        const row = document.createElement("div");
+        row.className = cls;
+        if (idx === 0)
+            row.innerHTML = `<span>${data.from}</span> <span>${fmtDate(
+                data.departureDate
+            )}</span>`;
+        if (idx === 1)
+            row.innerHTML = `<span>${data.to}</span> <span>${data.transport}, ${data.capacity} т</span>`;
+        if (idx === 2)
+            row.innerHTML = `<span>👤${data.responsible}</span> <span>📞${data.phone}</span>`;
+        info.appendChild(row);
     });
     card.appendChild(info);
 
-    const del = document.createElement("button");
-    del.className = "delete-btn";
-    del.textContent = "❌";
-    del.onclick = (e) => {
-      e.stopPropagation();
-      if (!confirm("Удалить рейс?")) return;
-      removeFlight(JSON.parse(card.dataset.flight));
-      renderUser();
-      renderAll();
-    };
-    card.appendChild(del);
+    // Добавляем кнопку удаления только для своих заявок
+    if (isUserList) {
+        const del = document.createElement("button");
+        del.className = "delete-btn";
+        del.textContent = "❌";
+        del.onclick = (e) => {
+            e.stopPropagation();
+            flightToDelete = JSON.parse(card.dataset.flight);
+            confirmModal.classList.remove("hidden");
+        };
+        card.appendChild(del);
+    }
 
-    card.onclick = () => openEditModal(card);
+    // Включаем редактирование только для своих заявок
+    if (isUserList) {
+        card.onclick = () => openEditModal(card);
+    }
 
     container.appendChild(card);
   }
@@ -213,12 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Рендер списков
   function renderUser() {
-    clearChildren(userList);
-    userFlights.forEach((f) => createCard(f, userList));
+      clearChildren(userList);
+      userFlights.forEach((f) => createCard(f, userList, true)); // true - это флаг для своих заявок
   }
   function renderAll(filtered = null) {
-    clearChildren(allList);
-    (filtered || allFlights).forEach((f) => createCard(f, allList));
+      clearChildren(allList);
+      (filtered || allFlights).forEach((f) => createCard(f, allList, false)); // false - это флаг для чужих заявок
   }
 
   // Фильтрация
