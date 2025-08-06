@@ -37,6 +37,9 @@ html {
 .screen.active {
   display: flex;
 }
+.title-container {
+  margin: 0 0 10px 0;
+}
 
 /* Центрирование контента */
 .center-content {
@@ -124,6 +127,13 @@ html {
 }
 
 /* Кнопки и инпуты */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+}
+.btn-container button:not(:last-child) {
+  margin: 0 0 10px 0;
+}
 .btn,
 .icon-btn {
   background: #ddd;
@@ -184,7 +194,7 @@ input {
   color: #333;
 }
 .flights-list:not(.user-list) .flight-card {
-    cursor: default;
+  cursor: default;
 }
 #confirmModal .modal-content p {
   margin: 15px 0;
@@ -195,6 +205,7 @@ input {
 .footer {
   display: flex;
   justify-content: center;
+  padding: 10px;
 }
 
 /* Адаптив */
