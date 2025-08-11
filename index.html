@@ -86,18 +86,21 @@
           <input type="text" id="fromInput" placeholder="Откуда" required />
           <input type="date" id="departureDateInput" required />
           <input type="text" id="toInput" placeholder="Куда" required />
-          <input
-            type="text"
-            id="transportInput"
-            placeholder="Тип транспорта"
-            required
-          />
-          <input
-            type="text"
-            id="capacityInput"
-            placeholder="Грузоподъёмность (т)"
-            required
-          />
+          <select id="transportInput" required>
+            <option value="Тент">Тент</option>
+            <option value="Фургон">Фургон</option>
+            <option value="Цельнометалл">Цельнометалл</option>
+            <option value="Бортовой">Бортовой</option>
+          </select>
+          <select id="capacityInput" required>
+            <option value="До 0.5 т">До 0.5 т</option>
+            <option value="До 1 т">До 1 т</option>
+            <option value="До 1.5 т">До 1.5 т</option>
+            <option value="До 2 т">До 2 т</option>
+            <option value="До 2.5 т">До 2.5 т</option>
+            <option value="До 3 т">До 3 т</option>
+            <option value="До 3.5 т">До 3.5 т</option>
+          </select>
           <input
             type="text"
             id="responsibleInput"
