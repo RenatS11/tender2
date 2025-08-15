@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Экраны
   const screens = {
-    screen1: document.getElementById("screen1"),
-    screen2: document.getElementById("screen2"),
     screen3: document.getElementById("screen3"),
     screen4: document.getElementById("screen4"),
   };
@@ -12,17 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Кнопки навигации
-  document.getElementById("btnLogin1").onclick = () => showScreen("screen2");
-  document.getElementById("btnRegister").onclick = () => showScreen("screen3");
-  document.getElementById("btnSkip1").onclick = () => showScreen("screen3");
-  document.getElementById("btnLogin2").onclick = () => {
-    const u = document.getElementById("loginInput").value.trim();
-    const p = document.getElementById("passwordInput").value.trim();
-    if (!u || !p) return alert("Введите логин и пароль");
-    showScreen("screen3");
-  };
-  document.getElementById("btnSkip2").onclick = () => showScreen("screen3");
-  document.getElementById("btnBack2").onclick = () => showScreen("screen1");
   document.getElementById("btnGlobe").onclick = () => {
     renderAll();
     showScreen("screen4");
@@ -56,6 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
     filterModal.classList.remove("hidden");
   document.getElementById("btnCancelFilter").onclick = () =>
     filterModal.classList.add("hidden");
+  document.getElementById("btnClearModal").onclick = () => {
+    addForm.reset();
+  };
+  document.getElementById("btnClearFilter").onclick = () => {
+    filterForm.reset();
+  };
 
   // Формы и списки
   const addForm = document.getElementById("addFlightForm");
@@ -217,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return o;
     }, {});
     if (Object.values(data).some((v) => !v)) {
-      return alert("Заполните все поля");
+      return;
     }
     if (editingCard) {
       const old = JSON.parse(editingCard.dataset.flight);
@@ -263,5 +256,5 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Запуск стартового экрана
-  showScreen("screen1");
+  showScreen("screen3");
 });

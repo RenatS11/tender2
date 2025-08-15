@@ -9,47 +9,22 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
     <div id="app">
-      <!-- Экран 1 -->
-      <section id="screen1" class="screen center-content active">
-        <div class="title-container">
-          <h1>ТЕНДЕР</h1>
-          <p>ЛОГИСТИК</p>
-        </div>
-        <div class="btn-container">
-          <button class="btn" id="btnLogin1">Вход</button>
-          <button class="btn" id="btnRegister">Регистрация</button>
-          <button class="btn" id="btnSkip1">Пропустить</button>
-        </div>
-      </section>
-
-      <!-- Экран 2 -->
-      <section id="screen2" class="screen center-content">
-        <input
-          type="text"
-          id="loginInput"
-          placeholder="Логин"
-          autocomplete="username"
-        />
-        <input
-          type="password"
-          id="passwordInput"
-          placeholder="Пароль"
-          autocomplete="current-password"
-        />
-        <button class="btn" id="btnLogin2">Вход</button>
-        <button class="btn" id="btnSkip2">Пропустить</button>
-        <button class="btn" id="btnBack2">Назад</button>
-      </section>
-
       <!-- Экран 3 -->
       <section id="screen3" class="screen">
         <header class="header screen-header">
-          <button class="icon-btn" id="btnGlobe" title="Все заявки">🌐</button>
+          <button class="icon-btn" id="btnGlobe" title="Все заявки">
+            <span class="material-symbols-outlined">
+              language
+            </span>
+          </button>
           <button class="icon-btn" id="btnSettings" title="Настройки">
-            ⚙️
+            <span class="material-symbols-outlined">
+              settings
+            </span>
           </button>
         </header>
         <main class="main-content">
@@ -64,7 +39,9 @@
       <section id="screen4" class="screen">
         <header class="header screen-header">
           <button class="icon-btn" id="btnHomeFromScreen4" title="Домой">
-            🏠
+            <span class="material-symbols-outlined">
+              home
+            </span>
           </button>
           <h2>Заявки всех пользователей</h2>
           <div></div>
@@ -116,6 +93,7 @@
           />
           <div class="modal-buttons">
             <button type="submit" class="btn">Добавить</button>
+            <button type="button" class="btn" id="btnClearModal">Очистить</button>
             <button type="button" class="btn btn-cancel" id="btnCancelModal">
               Отмена
             </button>
@@ -156,6 +134,7 @@
           />
           <div class="modal-buttons">
             <button type="submit" class="btn">Искать</button>
+            <button type="button" class="btn" id="btnClearFilter">Очистить</button>
             <button type="button" class="btn btn-cancel" id="btnCancelFilter">
               Отмена
             </button>

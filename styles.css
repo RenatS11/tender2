@@ -143,6 +143,9 @@ html {
   cursor: pointer;
   font-weight: 700;
 }
+.icon-btn {
+  display: flex;
+}
 input {
   width: 90%;
   max-width: 350px;
@@ -159,6 +162,7 @@ select {
   border-radius: 6px;
   background-color: white;
   font-family: 'Roboto', sans-serif;
+  cursor: pointer;
 }
 select:required:invalid {
   color: gray;
