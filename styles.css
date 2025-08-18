@@ -75,7 +75,7 @@ html {
 .main-content {
   flex-grow: 1;
   width: 100%;
-  margin-top: 60px; /* отступ под шапку + небольшой gap */
+  margin-top: 65px; /* отступ под шапку + небольшой gap */
   padding: 0 10px;
   overflow-y: auto;
 }
